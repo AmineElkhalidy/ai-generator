@@ -6,8 +6,9 @@ import { ClerkProvider } from "@clerk/nextjs";
 const rubik = Rubik({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "AI Saas Generator App",
-  description: "AI Saas generator app which includes five branches",
+  title: "Genify - AI Saas Generator App",
+  description:
+    "Genify is an AI Saas generator app which includes five type of content generation: Conversation, Image, Video, Music and Code",
 };
 
 export default function RootLayout({

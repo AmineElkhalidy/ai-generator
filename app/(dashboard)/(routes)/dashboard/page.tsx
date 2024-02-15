@@ -62,7 +62,7 @@ const DashboardPage = () => {
         </h2>
         <p className="text-center">
           Chat with{" "}
-          <span className="text-sm md:text-lg bg-gradient-to-r from-cyan-500 to-blue-500 bg-clip-text text-transparent font-medium">
+          <span className="text-lg bg-gradient-to-r from-cyan-500 to-blue-500 bg-clip-text text-transparent font-medium">
             Genify
           </span>
           , the{" "}
