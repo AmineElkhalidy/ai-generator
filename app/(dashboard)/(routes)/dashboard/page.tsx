@@ -60,16 +60,8 @@ const DashboardPage = () => {
         <h2 className="text-2xl md:text-4xl font-semibold text-center">
           Explore the power of AI
         </h2>
-        <p className="text-center">
-          Chat with{" "}
-          <span className="text-lg bg-gradient-to-r from-cyan-500 to-blue-500 bg-clip-text text-transparent font-medium">
-            Genify
-          </span>
-          , the{" "}
-          <span className="bg-gradient-to-r from-cyan-500 to-blue-500 text-white font-medium inline-block px-1 rounded-md">
-            smartest AI
-          </span>
-          .
+        <p className="text-center text-muted-foreground">
+          Chat with Genify, The Smartest AI.
         </p>
       </div>
 
