@@ -15,6 +15,9 @@ import { useRouter } from "next/navigation";
 import { ChatCompletionRequestMessage } from "openai";
 import Empty from "@/components/Empty";
 import Loader from "@/components/Loader";
+import UserAvatar from "@/components/UserAvatar";
+import BotAvatar from "@/components/BotAvatar";
+import { cn } from "@/lib/utils";
 
 const ConversationGenerationPage = () => {
   const router = useRouter();
@@ -112,9 +115,22 @@ const ConversationGenerationPage = () => {
           )}
 
           <div className="flex flex-col-reverse gap-y-4">
-            {messages?.map((message, index) => (
-              <div key={index}>{message.content}</div>
-            ))}
+            <div className="flex flex-col-reverse gap-y-4">
+              {messages.map((message) => (
+                <div
+                  key={message.content}
+                  className={cn(
+                    "p-8 w-full flex items-start gap-x-8 rounded-lg",
+                    message.role === "user"
+                      ? "bg-white border border-black/10"
+                      : "bg-muted"
+                  )}
+                >
+                  {message.role === "user" ? <UserAvatar /> : <BotAvatar />}
+                  <p className="text-sm">{message.content}</p>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </div>
