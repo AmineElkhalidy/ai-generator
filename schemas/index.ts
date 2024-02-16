@@ -51,3 +51,9 @@ export const resolutionOptions = [
     label: "1024x1024",
   },
 ];
+
+export const MusicFormSchema = z.object({
+  prompt: z.string().min(1, {
+    message: "Music prompt is required",
+  }),
+});
