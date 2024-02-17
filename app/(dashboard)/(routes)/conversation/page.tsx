@@ -34,7 +34,7 @@ const ConversationGenerationPage = () => {
 
   async function onSubmit(values: z.infer<typeof ConversationFormSchema>) {
     try {
-      const userMessage: ChatCompletionRequestMessage = {
+      const userMessage = {
         role: "user",
         content: values.prompt,
       };
@@ -42,10 +42,10 @@ const ConversationGenerationPage = () => {
       const newMessages = [...messages, userMessage];
 
       const response = await axios.post("/api/conversation", {
-        messages: newMessages,
+        messages: values.prompt,
       });
 
-      setMessages((current) => [...current, userMessage, response.data]);
+      setMessages((current) => [...current, userMessage, response.data[0]]);
       form.reset();
     } catch (error) {
       //TODO: Open Pro Modal
@@ -116,9 +116,9 @@ const ConversationGenerationPage = () => {
 
           <div className="flex flex-col-reverse gap-y-4">
             <div className="flex flex-col-reverse gap-y-4">
-              {messages.map((message) => (
+              {messages.map((message, index) => (
                 <div
-                  key={message.content}
+                  key={index}
                   className={cn(
                     "p-8 w-full flex items-start gap-x-8 rounded-lg",
                     message.role === "user"
