@@ -65,8 +65,8 @@ const Sidebar = () => {
     <div className="space-y-4 py-4 flex flex-col h-full bg-[#111827] text-white">
       <div className="px-3 py-2">
         <Link href="/dashboard" className="flex items-center pl-3 mb-12">
-          <div className="relative w-8 h-8 mr-4">
-            <Image fill src="/genify.png" alt="Genify Logo" />
+          <div className="relative w-8 h-8 mr-3">
+            <Image fill src="/genify.webp" alt="Genify Logo" />
           </div>
           <h1 className="text-2xl font-bold">Genify</h1>
         </Link>

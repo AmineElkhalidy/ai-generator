@@ -12,8 +12,8 @@ const LandingNavbar = () => {
   return (
     <nav className="p-4 bg-transparent flex items-center justify-between mb-10">
       <Link href="/" className="flex items-center">
-        <div className="relative h-8 w-8 mr-4">
-          <Image src="/genify.png" alt="Genify Logo" fill />
+        <div className="relative h-8 w-8 mr-3">
+          <Image src="/genify.webp" alt="Genify Logo" fill />
         </div>
         <h1 className="text-white font-semibold text-2xl">Genify</h1>
       </Link>

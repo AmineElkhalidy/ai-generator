@@ -4,6 +4,7 @@ import { NextResponse } from "next/server";
 
 const replicate = new Replicate({
   auth: process.env.REPLICATE_API_TOKEN!,
+  // ! exclamation at the end is equal to: ... || ""
 });
 
 export async function POST(req: Request) {
