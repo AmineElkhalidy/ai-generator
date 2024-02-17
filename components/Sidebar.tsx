@@ -14,6 +14,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import React from "react";
+import FreeCounter from "./FreeCounter";
 const links = [
   {
     label: "Dashboard",
@@ -58,11 +59,11 @@ const links = [
   },
 ];
 
-const Sidebar = () => {
+const Sidebar = ({ apilimit = 0 }: { apilimit: number }) => {
   const pathname = usePathname();
 
   return (
-    <div className="space-y-4 py-4 flex flex-col h-full bg-[#111827] text-white">
+    <div className="py-4 flex flex-col h-full bg-[#111827] text-white overflow-y-auto">
       <div className="px-3 py-2">
         <Link href="/dashboard" className="flex items-center pl-3 mb-12">
           <div className="relative w-8 h-8 mr-3">
@@ -92,6 +93,8 @@ const Sidebar = () => {
           </li>
         ))}
       </ul>
+
+      <FreeCounter apilimit={apilimit} />
     </div>
   );
 };
