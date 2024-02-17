@@ -15,10 +15,13 @@ import { Form, FormControl, FormField, FormItem } from "@/components/ui/form";
 import Loader from "@/components/Loader";
 import Empty from "@/components/Empty";
 import { VideoFormSchema } from "@/schemas";
+import toast from "react-hot-toast";
+import { useProModal } from "@/hooks/useProModal";
 
 const VideoGenerationPage = () => {
   const router = useRouter();
   const [video, setVideo] = useState<string>();
+  const proModal = useProModal();
 
   const form = useForm<z.infer<typeof VideoFormSchema>>({
     resolver: zodResolver(VideoFormSchema),
@@ -38,11 +41,11 @@ const VideoGenerationPage = () => {
       setVideo(response.data[0]);
       form.reset();
     } catch (error: any) {
-      // if (error?.response?.status === 403) {
-      //   proModal.onOpen();
-      // } else {
-      //   toast.error("Something went wrong.");
-      // }
+      if (error?.response?.status === 403) {
+        proModal.onOpen();
+      } else {
+        toast.error("Something went wrong.");
+      }
     } finally {
       router.refresh();
     }

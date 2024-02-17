@@ -21,6 +21,7 @@ import UserAvatar from "@/components/UserAvatar";
 import Empty from "@/components/Empty";
 import { useProModal } from "@/hooks/useProModal";
 import { CodeFormSchema } from "@/schemas";
+import toast from "react-hot-toast";
 
 const CodePage = () => {
   const router = useRouter();

@@ -14,10 +14,13 @@ import axios from "axios";
 import { useRouter } from "next/navigation";
 import Empty from "@/components/Empty";
 import Loader from "@/components/Loader";
+import { useProModal } from "@/hooks/useProModal";
+import toast from "react-hot-toast";
 
 const MusicGenerationPage = () => {
   const router = useRouter();
   const [music, setMusic] = useState<string>();
+  const proModal = useProModal();
 
   const form = useForm<z.infer<typeof MusicFormSchema>>({
     resolver: zodResolver(MusicFormSchema),
@@ -35,11 +38,11 @@ const MusicGenerationPage = () => {
       setMusic(response.data.audio);
       form.reset();
     } catch (error: any) {
-      // if (error?.response?.status === 403) {
-      //   proModal.onOpen();
-      // } else {
-      //   toast.error("Something went wrong.");
-      // }
+      if (error?.response?.status === 403) {
+        proModal.onOpen();
+      } else {
+        toast.error("Something went wrong!");
+      }
     } finally {
       router.refresh();
     }

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Rubik } from "next/font/google";
 import "./globals.css";
 import { ClerkProvider } from "@clerk/nextjs";
+import ModalProvider from "@/components/ModalProvider";
 
 const rubik = Rubik({ subsets: ["latin"] });
 
@@ -19,7 +20,10 @@ export default function RootLayout({
   return (
     <ClerkProvider>
       <html lang="en">
-        <body className={rubik.className}>{children}</body>
+        <body className={rubik.className}>
+          <ModalProvider />
+          {children}
+        </body>
       </html>
     </ClerkProvider>
   );

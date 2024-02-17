@@ -63,9 +63,9 @@ const Sidebar = ({ apilimit = 0 }: { apilimit: number }) => {
   const pathname = usePathname();
 
   return (
-    <div className="py-4 flex flex-col h-full bg-[#111827] text-white overflow-y-auto">
+    <div className="py-4 flex flex-col h-full bg-[#111827] text-white justify-between overflow-y-auto">
       <div className="px-3 py-2">
-        <Link href="/dashboard" className="flex items-center pl-3 mb-12">
+        <Link href="/dashboard" className="flex items-center pl-3 mb-10">
           <div className="relative w-8 h-8 mr-3">
             <Image fill src="/genify.webp" alt="Genify Logo" />
           </div>
@@ -73,7 +73,7 @@ const Sidebar = ({ apilimit = 0 }: { apilimit: number }) => {
         </Link>
       </div>
 
-      <ul className="space-y-1">
+      <ul className="space-y-1 mb-10">
         {links.map((link, index) => (
           <li
             key={index}
