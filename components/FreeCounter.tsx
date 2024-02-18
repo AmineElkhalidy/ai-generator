@@ -29,6 +29,7 @@ const FreeCounter = ({ apilimit = 0 }: { apilimit: number }) => {
             <Progress
               value={(apilimit / MAX_FREE_COUNTS) * 100}
               className="h-3"
+              color="#005DBB"
             />
           </div>
           <CardFooter>

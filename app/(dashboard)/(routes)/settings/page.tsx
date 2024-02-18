@@ -9,7 +9,7 @@ const SettingsPage = () => {
     <section className="mt-8">
       <Heading
         title="Settings"
-        description="Tweak your settings."
+        description="Manage account settings."
         Icon={Settings}
         iconColor="text-black"
         bgColor="bg-black/10"

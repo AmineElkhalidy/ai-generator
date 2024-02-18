@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   Dialog,
   DialogContent,
@@ -21,6 +21,8 @@ import { Badge } from "./ui/badge";
 import { Card } from "./ui/card";
 import { cn } from "@/lib/utils";
 import { Button } from "./ui/button";
+import axios from "axios";
+import toast from "react-hot-toast";
 
 const tools = [
   {
@@ -59,7 +61,22 @@ const tools = [
 ];
 
 const ProModal = () => {
+  const [loading, setLoading] = useState(false);
   const proModal = useProModal();
+
+  const onSusbscribe = async () => {
+    try {
+      setLoading(true);
+      const response = await axios.get("/api/stripe");
+      console.log(response);
+
+      window.location.href = response.data.url;
+    } catch (error) {
+      toast.error("Something went wrong with Stripe!");
+    } finally {
+      setLoading(false);
+    }
+  };
   return (
     <Dialog open={proModal.isOpen} onOpenChange={proModal.onClose}>
       <DialogContent>
@@ -92,7 +109,13 @@ const ProModal = () => {
           ))}
         </DialogDescription>
         <DialogFooter>
-          <Button size="lg" variant="premium" className="w-full text-white">
+          <Button
+            disabled={loading}
+            onClick={onSusbscribe}
+            size="lg"
+            variant="premium"
+            className="w-full text-white"
+          >
             Upgrade <Zap className="w-4 h-4 ml-2 fill-white" />
           </Button>
         </DialogFooter>

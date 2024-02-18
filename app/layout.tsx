@@ -4,6 +4,7 @@ import "./globals.css";
 import { ClerkProvider } from "@clerk/nextjs";
 import ModalProvider from "@/components/ModalProvider";
 import { ToasterProvider } from "@/components/ToastProvider";
+import CrispProvider from "@/components/CrispProvider";
 
 const rubik = Rubik({ subsets: ["latin"] });
 
@@ -21,9 +22,10 @@ export default function RootLayout({
   return (
     <ClerkProvider>
       <html lang="en">
+        <CrispProvider />
         <body className={rubik.className}>
-          <ToasterProvider />
           <ModalProvider />
+          <ToasterProvider />
           {children}
         </body>
       </html>

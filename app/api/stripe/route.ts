@@ -9,7 +9,7 @@ const settingsUrl = absoluteURL("/settings");
 export async function GET() {
   try {
     const { userId } = auth();
-    const user = currentUser();
+    const user = await currentUser();
 
     if (!userId || !user)
       return new NextResponse("Unauthorized", { status: 401 });
@@ -34,7 +34,7 @@ export async function GET() {
       payment_method_types: ["card"],
       mode: "subscription",
       billing_address_collection: "auto",
-      customer_email: user.emailAddresses[0].emailAddress,
+      customer_email: user?.emailAddresses[0].emailAddress,
       line_items: [
         {
           price_data: {

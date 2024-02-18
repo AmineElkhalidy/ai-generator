@@ -15,7 +15,6 @@ import { Form, FormControl, FormField, FormItem } from "@/components/ui/form";
 import Loader from "@/components/Loader";
 import Empty from "@/components/Empty";
 import { VideoFormSchema } from "@/schemas";
-import toast from "react-hot-toast";
 import { useProModal } from "@/hooks/useProModal";
 
 const VideoGenerationPage = () => {
