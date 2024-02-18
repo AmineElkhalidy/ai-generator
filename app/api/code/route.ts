@@ -37,7 +37,7 @@ export async function POST(req: Request) {
 
     const freeTrial = await checkApiLimit();
     if (!freeTrial) {
-      new NextResponse("Free trial has expired", { status: 403 });
+      return new NextResponse("Free trial has expired", { status: 403 });
     }
 
     const response = await openai.createChatCompletion({

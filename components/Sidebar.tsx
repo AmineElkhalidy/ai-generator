@@ -15,6 +15,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import React from "react";
 import FreeCounter from "./FreeCounter";
+
 const links = [
   {
     label: "Dashboard",
@@ -63,8 +64,8 @@ const Sidebar = ({ apilimit = 0 }: { apilimit: number }) => {
   const pathname = usePathname();
 
   return (
-    <div className="py-4 flex flex-col h-full bg-[#111827] text-white justify-between overflow-y-auto">
-      <div className="px-3 py-2">
+    <div className="py-4 flex flex-col h-full bg-[#111827] text-white overflow-y-auto">
+      <div className="px-3 py-2 flex-1">
         <Link href="/dashboard" className="flex items-center pl-3 mb-10">
           <div className="relative w-8 h-8 mr-3">
             <Image fill src="/genify.webp" alt="Genify Logo" />

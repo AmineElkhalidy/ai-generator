@@ -3,6 +3,7 @@ import { Rubik } from "next/font/google";
 import "./globals.css";
 import { ClerkProvider } from "@clerk/nextjs";
 import ModalProvider from "@/components/ModalProvider";
+import { ToasterProvider } from "@/components/ToastProvider";
 
 const rubik = Rubik({ subsets: ["latin"] });
 
@@ -21,6 +22,7 @@ export default function RootLayout({
     <ClerkProvider>
       <html lang="en">
         <body className={rubik.className}>
+          <ToasterProvider />
           <ModalProvider />
           {children}
         </body>
