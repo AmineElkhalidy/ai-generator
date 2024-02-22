@@ -8,6 +8,12 @@ dependencies:
   '@clerk/nextjs':
     specifier: ^4.29.7
     version: 4.29.7(next@14.1.0)(react-dom@18.2.0)(react@18.2.0)
+  '@headlessui/react':
+    specifier: ^1.7.18
+    version: 1.7.18(react-dom@18.2.0)(react@18.2.0)
+  '@heroicons/react':
+    specifier: ^2.1.1
+    version: 2.1.1(react@18.2.0)
   '@hookform/resolvers':
     specifier: ^3.3.4
     version: 3.3.4(react-hook-form@7.50.1)
@@ -54,10 +60,10 @@ dependencies:
     specifier: 3.3.0
     version: 3.3.0
   react:
-    specifier: ^18
+    specifier: ^18.2.0
     version: 18.2.0
   react-dom:
-    specifier: ^18
+    specifier: ^18.2.0
     version: 18.2.0(react@18.2.0)
   react-fast-marquee:
     specifier: ^1.6.4
@@ -95,34 +101,34 @@ dependencies:
 
 devDependencies:
   '@types/node':
-    specifier: ^20
+    specifier: ^20.11.17
     version: 20.11.17
   '@types/react':
-    specifier: ^18
+    specifier: ^18.2.55
     version: 18.2.55
   '@types/react-dom':
-    specifier: ^18
+    specifier: ^18.2.19
     version: 18.2.19
   autoprefixer:
-    specifier: ^10.0.1
+    specifier: ^10.4.17
     version: 10.4.17(postcss@8.4.35)
   eslint:
-    specifier: ^8
+    specifier: ^8.56.0
     version: 8.56.0
   eslint-config-next:
     specifier: 14.1.0
     version: 14.1.0(eslint@8.56.0)(typescript@5.3.3)
   postcss:
-    specifier: ^8
+    specifier: ^8.4.35
     version: 8.4.35
   prisma:
     specifier: ^5.9.1
     version: 5.9.1
   tailwindcss:
-    specifier: ^3.3.0
+    specifier: ^3.4.1
     version: 3.4.1
   typescript:
-    specifier: ^5
+    specifier: ^5.3.3
     version: 5.3.3
 
 packages:
@@ -292,6 +298,27 @@ packages:
 
   /@floating-ui/utils@0.2.1:
     resolution: {integrity: sha512-9TANp6GPoMtYzQdt54kfAyMmz1+osLlXdg2ENroU7zzrtflTLrrC/lgrIfaSe+Wu0b89GKccT7vxXA0MoAIO+Q==}
+    dev: false
+
+  /@headlessui/react@1.7.18(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-4i5DOrzwN4qSgNsL4Si61VMkUcWbcSKueUV7sFhpHzQcSShdlHENE5+QBntMSRvHt8NyoFO2AGG8si9lq+w4zQ==}
+    engines: {node: '>=10'}
+    peerDependencies:
+      react: ^16 || ^17 || ^18
+      react-dom: ^16 || ^17 || ^18
+    dependencies:
+      '@tanstack/react-virtual': 3.1.2(react-dom@18.2.0)(react@18.2.0)
+      client-only: 0.0.1
+      react: 18.2.0
+      react-dom: 18.2.0(react@18.2.0)
+    dev: false
+
+  /@heroicons/react@2.1.1(react@18.2.0):
+    resolution: {integrity: sha512-JyyN9Lo66kirbCMuMMRPtJxtKJoIsXKS569ebHGGRKbl8s4CtUfLnyKJxteA+vIKySocO4s1SkTkGS4xtG/yEA==}
+    peerDependencies:
+      react: '>= 16'
+    dependencies:
+      react: 18.2.0
     dev: false
 
   /@hookform/resolvers@3.3.4(react-hook-form@7.50.1):
@@ -1103,6 +1130,21 @@ packages:
     resolution: {integrity: sha512-E4KcWTpoLHqwPHLxidpOqQbcrZVgi0rsmmZXUle1jXmJfuIf/UWpczUJ7MZZ5tlxytgJXyp0w4PGkkeLiuIdZw==}
     dependencies:
       tslib: 2.6.2
+    dev: false
+
+  /@tanstack/react-virtual@3.1.2(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-qibmxtctgOZo2I+3Rw5GR9kXgaa15U5r3/idDY1ItUKW15UK7GhCfyIfE6qYuJ1fxQF6dJDsD8SbpPyuJgpxuA==}
+    peerDependencies:
+      react: ^16.8.0 || ^17.0.0 || ^18.0.0
+      react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
+    dependencies:
+      '@tanstack/virtual-core': 3.1.2
+      react: 18.2.0
+      react-dom: 18.2.0(react@18.2.0)
+    dev: false
+
+  /@tanstack/virtual-core@3.1.2:
+    resolution: {integrity: sha512-DATZJs8iejkIUqXZe6ruDAnjFo78BKnIIgqQZrc7CmEFqfLEN/TPD91n4hRfo6hpRB6xC00bwKxv7vdjFNEmOg==}
     dev: false
 
   /@types/body-parser@1.19.5:
