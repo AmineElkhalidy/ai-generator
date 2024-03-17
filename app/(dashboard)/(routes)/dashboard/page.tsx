@@ -61,7 +61,8 @@ const DashboardPage = () => {
           Explore the power of AI
         </h2>
         <p className="text-center text-muted-foreground">
-          Chat with Genify, The Smartest AI.
+          Chat with <span className="font-medium">Genify</span>, The Smartest
+          AI.
         </p>
       </div>
 
@@ -69,7 +70,7 @@ const DashboardPage = () => {
         {tools.map((tool, index) => (
           <Card
             className={cn(
-              "p-4 bg-black/5 flex items-center justify-between duration-300 hover:shadow-md cursor-pointer group ",
+              "p-4 bg-black/5 flex items-center justify-between duration-300 hover:border cursor-pointer group ",
               tool.bgColor
             )}
             key={index}

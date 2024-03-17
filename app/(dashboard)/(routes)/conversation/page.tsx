@@ -8,7 +8,13 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import React, { useState } from "react";
 import { ConversationFormSchema } from "@/schemas";
 import { Button } from "@/components/ui/button";
-import { Form, FormControl, FormField, FormItem } from "@/components/ui/form";
+import {
+  Form,
+  FormControl,
+  FormField,
+  FormItem,
+  FormMessage,
+} from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import axios from "axios";
 import { useRouter } from "next/navigation";
@@ -134,7 +140,7 @@ const ConversationGenerationPage = () => {
                   )}
                 >
                   {message.role === "user" ? <UserAvatar /> : <BotAvatar />}
-                  <p className="text-sm">{message.content}</p>
+                  <p className="text-sm">{message?.content}</p>
                 </div>
               ))}
             </div>

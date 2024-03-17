@@ -18,12 +18,20 @@ const LandingNavbar = () => {
         <h1 className="text-white font-semibold text-2xl">Genify</h1>
       </Link>
 
-      <div className="flex items-center gap-x-2">
-        <Link href={isSignedIn ? "/dashboard" : "/sign-up"}>
-          <Button variant="outline" className="rounded-full px-6">
-            Get Started
-          </Button>
-        </Link>
+      <div>
+        {isSignedIn ? (
+          <Link href="/dashboard">
+            <Button variant="premium" className="rounded-full px-6 text-white">
+              Dashboard
+            </Button>
+          </Link>
+        ) : (
+          <Link href="/sign-up">
+            <Button variant="outline" className="rounded-full px-6">
+              Get Started
+            </Button>
+          </Link>
+        )}
       </div>
     </nav>
   );

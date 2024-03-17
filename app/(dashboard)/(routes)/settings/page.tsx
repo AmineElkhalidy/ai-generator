@@ -3,8 +3,7 @@
 import Heading from "@/components/Heading";
 import { Settings } from "lucide-react";
 import React, { useState } from "react";
-import { Dialog, Switch } from "@headlessui/react";
-import { Bars3Icon } from "@heroicons/react/20/solid";
+import { Switch } from "@headlessui/react";
 import {
   BellIcon,
   CreditCardIcon,
@@ -12,8 +11,8 @@ import {
   FingerPrintIcon,
   UserCircleIcon,
   UsersIcon,
-  XMarkIcon,
 } from "@heroicons/react/24/outline";
+import { useUser } from "@clerk/nextjs";
 
 const navigation = [
   { name: "Home", href: "#" },
@@ -30,6 +29,7 @@ const secondaryNavigation = [
   { name: "Team members", href: "#", icon: UsersIcon, current: false },
 ];
 
+//@ts-ignore
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
@@ -37,6 +37,10 @@ function classNames(...classes) {
 const SettingsPage = () => {
   const [automaticTimezoneEnabled, setAutomaticTimezoneEnabled] =
     useState(true);
+
+  const { user } = useUser();
+
+  console.log(user);
 
   return (
     <>
@@ -64,46 +68,22 @@ const SettingsPage = () => {
               </p>
 
               <dl className="mt-6 space-y-6 divide-y divide-gray-100 border-t border-gray-200 text-sm leading-6">
-                <div className="pt-6 sm:flex">
+                <div className="pt-6 sm:flex justify-between">
                   <dt className="font-medium text-gray-900 sm:w-64 sm:flex-none sm:pr-6">
                     Full name
                   </dt>
-                  <dd className="mt-1 flex justify-between gap-x-6 sm:mt-0 sm:flex-auto">
-                    <div className="text-gray-900">Tom Cook</div>
-                    <button
-                      type="button"
-                      className="font-semibold text-indigo-600 hover:text-indigo-500"
-                    >
-                      Update
-                    </button>
+                  <dd className="mt-1 sm:mt-0">
+                    <div className="text-gray-900">{user?.fullName}</div>
                   </dd>
                 </div>
-                <div className="pt-6 sm:flex">
+                <div className="pt-6 sm:flex justify-between">
                   <dt className="font-medium text-gray-900 sm:w-64 sm:flex-none sm:pr-6">
                     Email address
                   </dt>
-                  <dd className="mt-1 flex justify-between gap-x-6 sm:mt-0 sm:flex-auto">
-                    <div className="text-gray-900">tom.cook@example.com</div>
-                    <button
-                      type="button"
-                      className="font-semibold text-indigo-600 hover:text-indigo-500"
-                    >
-                      Update
-                    </button>
-                  </dd>
-                </div>
-                <div className="pt-6 sm:flex">
-                  <dt className="font-medium text-gray-900 sm:w-64 sm:flex-none sm:pr-6">
-                    Title
-                  </dt>
-                  <dd className="mt-1 flex justify-between gap-x-6 sm:mt-0 sm:flex-auto">
-                    <div className="text-gray-900">Human Resources Manager</div>
-                    <button
-                      type="button"
-                      className="font-semibold text-indigo-600 hover:text-indigo-500"
-                    >
-                      Update
-                    </button>
+                  <dd className="mt-1 sm:mt-0">
+                    <div className="text-gray-900">
+                      {user?.emailAddresses[0]?.emailAddress}
+                    </div>
                   </dd>
                 </div>
               </dl>
@@ -119,34 +99,15 @@ const SettingsPage = () => {
               </p>
 
               <dl className="mt-6 space-y-6 divide-y divide-gray-100 border-t border-gray-200 text-sm leading-6">
-                <div className="pt-6 sm:flex">
+                <div className="pt-6 sm:flex justify-between">
                   <dt className="font-medium text-gray-900 sm:w-64 sm:flex-none sm:pr-6">
                     Language
                   </dt>
-                  <dd className="mt-1 flex justify-between gap-x-6 sm:mt-0 sm:flex-auto">
+                  <dd className="mt-1 sm:mt-0">
                     <div className="text-gray-900">English</div>
-                    <button
-                      type="button"
-                      className="font-semibold text-indigo-600 hover:text-indigo-500"
-                    >
-                      Update
-                    </button>
                   </dd>
                 </div>
-                <div className="pt-6 sm:flex">
-                  <dt className="font-medium text-gray-900 sm:w-64 sm:flex-none sm:pr-6">
-                    Date format
-                  </dt>
-                  <dd className="mt-1 flex justify-between gap-x-6 sm:mt-0 sm:flex-auto">
-                    <div className="text-gray-900">DD-MM-YYYY</div>
-                    <button
-                      type="button"
-                      className="font-semibold text-indigo-600 hover:text-indigo-500"
-                    >
-                      Update
-                    </button>
-                  </dd>
-                </div>
+
                 <Switch.Group as="div" className="flex pt-6">
                   <Switch.Label
                     as="dt"
